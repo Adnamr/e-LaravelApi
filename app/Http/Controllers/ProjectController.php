@@ -2,22 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Reviews;
-use App\Model\Product;
+use App\Project;
 use Illuminate\Http\Request;
-use App\Http\Resources\Reviews\ReviewResource;
-use App\Http\Resources\Reviews\ReviewshowResource;
 
-class ReviewsController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Product $product)
+    public function index()
     {
-        return ReviewResource::collection($product->review); 
+        //
     }
 
     /**
@@ -44,21 +41,21 @@ class ReviewsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Reviews  $reviews
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product,Reviews $reviews)
+    public function show(Project $project)
     {
-        return Reviews::where('id','=',$reviews)->get();
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Reviews  $reviews
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reviews $reviews)
+    public function edit(Project $project)
     {
         //
     }
@@ -67,10 +64,10 @@ class ReviewsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Reviews  $reviews
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reviews $reviews)
+    public function update(Request $request, Project $project)
     {
         //
     }
@@ -78,10 +75,10 @@ class ReviewsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Reviews  $reviews
+     * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reviews $reviews)
+    public function destroy(Project $project)
     {
         //
     }

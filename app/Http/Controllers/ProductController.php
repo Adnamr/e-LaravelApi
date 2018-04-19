@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Product;
 use Illuminate\Http\Request;
+use App\Http\Resources\Product\ProductResource;
+use App\Http\Resources\Product\ProductallResource;
 
 class ProductController extends Controller
 {
@@ -14,7 +16,13 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        //echo '<pre>';print_r(Product::all());
+        //echo '<pre>';print_r(Product::select('name_product','price_product','stock')->get());
+        $product=Product::paginate(5);
+        //ProductallResource::collection will show u all records
+        return ProductallResource::collection($product);
+        
+        
     }
 
     /**
@@ -46,7 +54,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        //This line will show u one record
+        return new ProductResource($product);
     }
 
     /**
